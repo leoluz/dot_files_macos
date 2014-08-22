@@ -1,0 +1,3 @@
+nnoremap - :q<CR>
+nnoremap <CR> o<ESC>
+inoremap <C-a> <ESC>ggvG$

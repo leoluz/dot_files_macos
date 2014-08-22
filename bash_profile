@@ -9,6 +9,7 @@ export CAAS_ENVIRONMENT="development"
 export GOROOT="/usr/local/go"
 export GOPATH="$HOME/dev/go"
 export PATH="/usr/local/bin:$GOPATH/bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/leoluz/.gvm/bin/gvm-init.sh" ]] && source "/Users/leoluz/.gvm/bin/gvm-init.sh"
