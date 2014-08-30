@@ -18,7 +18,7 @@ Clone this repo in your home directory.
     $ ln -s ./dot_files_macos/ideavimrc .ideavimrc
     $ cp ./dot_files_macos/gitconfig .gitconfig
 
-Edit the `.gitconfig` file and add the missing configuration indicated.
+Edit the `.gitconfig` file and add the missing configurations indicated.
 
 Additional Instalations
 -----------------------
