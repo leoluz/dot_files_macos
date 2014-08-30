@@ -29,7 +29,7 @@ Additional Instalations
 
 ### Ruby environment
 
-    $ brew install rbenv ruby-build
+    $ brew install rbenv ruby-build rbenv-gem-rehash
     $ rbenv install 2.1.2 #or newer version
     $ rbenv global 2.1.2
 
