@@ -6,6 +6,8 @@ About
 
 I maintaing my MacOS configuration files in this repo in order to reuse it in different computers.
 
+Feel free to use it if it makes sense to you. :)
+
 Instalation
 -----------
 
@@ -20,6 +22,10 @@ Change the gitconfig file adding the missing configuration indicated in the file
 
 Additional Instalations
 -----------------------
+
+### Homebrew
+
+    $ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
 ### Ruby environment
 
@@ -36,5 +42,6 @@ Additional Instalations
 References
 ----------
 
+* homebrew: http://brew.sh/
 * rbenv: https://github.com/sstephenson/rbenv
 * gvm: http://gvmtool.net/
