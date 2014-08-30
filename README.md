@@ -44,4 +44,6 @@ References
 
 * homebrew: http://brew.sh/
 * rbenv: https://github.com/sstephenson/rbenv
+* rbenv-gem-rehash: https://github.com/sstephenson/rbenv-gem-rehash
+* ruby-build: https://github.com/sstephenson/ruby-build
 * gvm: http://gvmtool.net/
