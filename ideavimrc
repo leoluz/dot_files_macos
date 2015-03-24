@@ -1,3 +1,10 @@
 nnoremap - :q<CR>
 nnoremap <CR> o<ESC>
 inoremap <C-a> <ESC>ggvG$
+
+"" Auto center
+nmap G Gzz
+nmap n nzz
+nmap N Nzz
+nmap } }zz
+nmap { {zz
