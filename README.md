@@ -39,7 +39,7 @@ Additional Instalations
     $ gvm install groovy
     $ gvm install gradle
 
-### Configurationg
+### Configurations
 
 - [Screensaver shortcut setup][0]
 
