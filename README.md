@@ -39,6 +39,10 @@ Additional Instalations
     $ gvm install groovy
     $ gvm install gradle
 
+### Configurationg
+
+- [Screensaver shortcut setup][0]
+
 References
 ----------
 
@@ -47,3 +51,5 @@ References
 * rbenv-gem-rehash: https://github.com/sstephenson/rbenv-gem-rehash
 * ruby-build: https://github.com/sstephenson/ruby-build
 * gvm: http://gvmtool.net/
+
+[0]: http://osxdaily.com/2014/07/10/set-screen-saver-keyboard-shortcut-mac/
