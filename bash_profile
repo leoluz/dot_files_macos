@@ -14,7 +14,7 @@ GIT_PS1_SHOWDIRTYSTATE=1
 export GOROOT="/usr/local/go"
 export GOPATH="$HOME/dev/go"
 export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH="$GOPATH/bin:$GOROOT/bin:/usr/local/bin:$PATH"
+export PATH="$GOPATH/bin:$GOROOT/bin:$JAVA_HOME/bin:/usr/local/bin:$PATH"
 
 #eval "$(rbenv init -)"
 
