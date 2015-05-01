@@ -2,18 +2,20 @@
 
 alias ll="ls -lG"
 alias jekylls="jekyll serve --watch --baseurl ''"
+
 source ~/dot_files_macos/git-prompt.sh
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+
 GREEN='\e[01;32m'
 BLUE='\e[01;34m'
 YELLOW='\e[01;33m'
 RED='\e[01;31m'
 RESET_COLOR='\e[00m'
 PS1="$BLUE[$GREEN\u $BLUE\W]$YELLOW"'$(__git_ps1)'"$BLUE\$$RESET_COLOR "
-GIT_PS1_SHOWDIRTYSTATE=1
 
 # Hybris variables
-#export YAAS_GROOVY_CONFIG_FILE="$HOME/dev/groovy/groovyCommonsConfig.groovy"
-#export CAAS_ENVIRONMENT="development"
+export LOG_ROOT_LEVEL=debug
 
 # System variables
 export GOROOT="/usr/local/go"
