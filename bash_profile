@@ -3,7 +3,7 @@
 alias ll="ls -lG"
 alias jekylls="jekyll serve --watch --baseurl ''"
 source ~/dot_files_macos/git-prompt.sh
-PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
+PS1='\[\033[01;32m\]\u\[\033[01;34m\] \W\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
 GIT_PS1_SHOWDIRTYSTATE=1
 
 # Hybris variables
@@ -19,4 +19,4 @@ export PATH="$GOPATH/bin:$GOROOT/bin:$JAVA_HOME/bin:/usr/local/bin:$PATH"
 #eval "$(rbenv init -)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/leoluz/.gvm/bin/gvm-init.sh" ]] && source "/Users/leoluz/.gvm/bin/gvm-init.sh"
+[[ -s "/Users/i839864/.gvm/bin/gvm-init.sh" ]] && source "/Users/i839864/.gvm/bin/gvm-init.sh"
