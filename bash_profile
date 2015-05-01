@@ -3,7 +3,12 @@
 alias ll="ls -lG"
 alias jekylls="jekyll serve --watch --baseurl ''"
 source ~/dot_files_macos/git-prompt.sh
-PS1='\[\033[01;32m\]\u\[\033[01;34m\] \W\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
+GREEN='\e[01;32m'
+BLUE='\e[01;34m'
+YELLOW='\e[01;33m'
+RED='\e[01;31m'
+RESET_COLOR='\e[00m'
+PS1="$BLUE[$GREEN\u $BLUE\W]$YELLOW"'$(__git_ps1)'"$BLUE\$$RESET_COLOR "
 GIT_PS1_SHOWDIRTYSTATE=1
 
 # Hybris variables
