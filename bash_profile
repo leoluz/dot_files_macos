@@ -2,6 +2,7 @@
 
 alias ll="ls -lG"
 alias jekylls="jekyll serve --watch --baseurl ''"
+alias starthttp="python -m SimpleHTTPServer 8080"
 
 source ~/dot_files_macos/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=1
@@ -15,7 +16,7 @@ RESET_COLOR='\[\e[00m\]'
 PS1="$BLUE[$GREEN\u $BLUE\W]$YELLOW"'$(__git_ps1)'"$BLUE \$$RESET_COLOR "
 
 # Hybris variables
-export LOG_ROOT_LEVEL=debug
+#export LOG_ROOT_LEVEL=debug
 
 # System variables
 export GOROOT="/usr/local/go"
