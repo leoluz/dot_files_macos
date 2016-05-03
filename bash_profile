@@ -3,6 +3,7 @@
 alias ll="ls -lG"
 alias jekylls="jekyll serve --watch --baseurl ''"
 alias starthttp="python -m SimpleHTTPServer 8080"
+alias jenkins="java -jar jenkins-cli.jar"
 
 source ~/dot_files_macos/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=1
@@ -22,9 +23,9 @@ PS1="$BLUE[$GREEN\u $BLUE\W]$YELLOW"'$(__git_ps1)'"$BLUE \$$RESET_COLOR "
 export GOROOT="/usr/local/go"
 export GOPATH="$HOME/dev/go"
 export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH="$GOPATH/bin:$GOROOT/bin:$JAVA_HOME/bin:/usr/local/bin:$PATH"
+export PATH="$GOPATH/bin:$GOROOT/bin:$JAVA_HOME/bin:/usr/local/bin:$HOME/dev/bin:$PATH"
 
-#eval "$(rbenv init -)"
+. ~/.nvm/nvm.sh
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/i839864/.gvm/bin/gvm-init.sh" ]] && source "/Users/i839864/.gvm/bin/gvm-init.sh"
