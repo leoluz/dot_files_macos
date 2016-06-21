@@ -3,8 +3,6 @@
 alias ll="ls -lG"
 alias jekylls="jekyll serve --watch --baseurl ''"
 alias starthttp="python -m SimpleHTTPServer 8080"
-alias vpn-batman="sudo openconnect --authgroup=Employee --user=leo.almeida batman.appdirect.com"
-alias vpn-iceman="sudo openconnect --authgroup=Employee --user=leo.almeida iceman.appdirect.com"
 
 source ~/dot_files_macos/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=1
@@ -22,8 +20,10 @@ export GOROOT="/usr/local/go"
 export GOPATH="$HOME/dev/go"
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH="$GOPATH/bin:$GOROOT/bin:$JAVA_HOME/bin:/usr/local/bin:$HOME/dev/bin:$PATH"
-export MAVEN_DEBUG_OPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000"
-export MAVEN_OPTS="-Xms1024m -Xmx2048m -noverify -XX:MaxMetaspaceSize=760m"
+
+if [ -f ~/.ad_profile ]; then
+    source ~/.ad_profile
+fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/leoluz/.sdkman"

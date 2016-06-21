@@ -1,0 +1,6 @@
+#!/bin/bash
+alias vpn-batman="sudo openconnect --authgroup=Employee --user=leo.almeida batman.appdirect.com"
+alias vpn-iceman="sudo openconnect --authgroup=Employee --user=leo.almeida iceman.appdirect.com"
+
+export MAVEN_DEBUG_OPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000"
+export MAVEN_OPTS="-Xms1024m -Xmx2048m -noverify -XX:MaxMetaspaceSize=760m"
