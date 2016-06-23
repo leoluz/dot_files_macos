@@ -26,5 +26,5 @@ if [ -f ~/.ad_profile ]; then
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/leoluz/.sdkman"
-[[ -s "/Users/leoluz/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/leoluz/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
