@@ -19,7 +19,7 @@ PS1="$BLUE[$GREEN\u $BLUE\W]$YELLOW"'$(__git_ps1)'"$BLUE \$$RESET_COLOR "
 export GOROOT="/usr/local/go"
 export GOPATH="$HOME/dev/go"
 export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH="$GOPATH/bin:$GOROOT/bin:$JAVA_HOME/bin:/usr/local/bin:$HOME/dev/bin:$PATH"
+export PATH="$JAVA_HOME/bin:$GOPATH/bin:$GOROOT/bin:/usr/local/bin:$HOME/dev/bin:$PATH"
 
 if [ -f ~/.ad_profile ]; then
     source ~/.ad_profile

@@ -1,7 +1,19 @@
 #!/bin/bash
+
+sshkube() {
+  orchard_name=$1
+
+  orchard_shared_name="$(curl -s https://orchard.appdirect.tools/api/environments/${orchard_name} | jq -r .vpcEnvironment)"
+  kube_ip="$(curl -s https://orchard.appdirect.tools/api/environments/${orchard_shared_name} | jq -r '.output.master_public_ips[0]')"
+
+  shift
+  ssh -t "${kube_ip}" kubectl "--namespace=${orchard_name}" $*
+}
+
 alias vpnstart="sudo openconnect -b --authgroup=Employee --user=leo.almeida batman.appdirect.com"
 alias vpnstarticeman="sudo openconnect -b --authgroup=Employee --user=leo.almeida iceman.appdirect.com"
 alias vpnstop="sudo pkill -SIGINT openconnect"
+alias buildad="mvn clean install -pl '!appdirect' -Dmaven.test.skip=true -DskipTests=true"
 
 export MAVEN_DEBUG_OPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000"
 export MAVEN_OPTS="-Xms1024m -Xmx2048m -noverify -XX:MaxMetaspaceSize=760m"
