@@ -8,10 +8,10 @@ source ~/dot_files_macos/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 
-GREEN='\[\e[01;32m\]'
-BLUE='\[\e[01;34m\]'
-YELLOW='\[\e[01;33m\]'
-RED='\[\e[01;31m\]'
+GREEN='\[\e[32m\]'
+BLUE='\[\e[34m\]'
+YELLOW='\[\e[33m\]'
+RED='\[\e[31m\]'
 RESET_COLOR='\[\e[00m\]'
 PS1="$BLUE[$GREEN\u $BLUE\W]$YELLOW"'$(__git_ps1)'"$BLUE \$$RESET_COLOR "
 
