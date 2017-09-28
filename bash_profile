@@ -16,10 +16,9 @@ RESET_COLOR='\[\e[00m\]'
 PS1="$BLUE[$GREEN\u $BLUE\W]$YELLOW"'$(__git_ps1)'"$BLUE \$$RESET_COLOR "
 
 # System variables
-export GOROOT="/usr/local/go"
 export GOPATH="$HOME/dev/go"
 export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH="$JAVA_HOME/bin:$GOPATH/bin:$GOROOT/bin:/usr/local/bin:$HOME/dev/bin:$PATH"
+export PATH="$JAVA_HOME/bin:$GOPATH/bin:/usr/local/bin:$HOME/dev/bin:$PATH"
 
 if [ -f ~/.ad_profile ]; then
     source ~/.ad_profile
@@ -28,3 +27,4 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
