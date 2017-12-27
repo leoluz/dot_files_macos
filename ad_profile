@@ -10,8 +10,8 @@ sshkube() {
   ssh -t "${kube_ip}" kubectl "--namespace=${orchard_name}" $*
 }
 
-alias vpnstart="sudo openconnect -b --authgroup=Employee --user=leo.almeida batman.appdirect.com"
-alias vpnstarticeman="sudo openconnect -b --authgroup=Employee --user=leo.almeida iceman.appdirect.com"
+alias vpnstart="sudo openconnect -b --authgroup=Duo --user=leo.almeida batman.appdirect.com"
+alias vpnstarticeman="sudo openconnect -b --authgroup=Duo --user=leo.almeida iceman.appdirect.com"
 alias vpnstop="sudo pkill -SIGINT openconnect"
 alias buildad="mvn clean install -pl '!appdirect' -Dmaven.test.skip=true -DskipTests=true"
 
