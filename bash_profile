@@ -18,7 +18,7 @@ PS1="$BLUE[$GREEN\u $BLUE\W]$YELLOW"'$(__git_ps1)'"$BLUE \$$RESET_COLOR "
 # System variables
 export GOPATH="$HOME/dev/go"
 export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH="$JAVA_HOME/bin:$GOPATH/bin:/usr/local/bin:$HOME/dev/bin:$PATH"
+PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:$HOME/dev/bin:$JAVA_HOME/bin:$GOPATH/bin:$PATH"
 
 if [ -f ~/.ad_profile ]; then
     source ~/.ad_profile
@@ -32,3 +32,7 @@ fi
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export PATH="$HOME/.cargo/bin:$PATH"
