@@ -4,6 +4,10 @@ alias ll="ls -lG"
 alias jekylls="jekyll serve --watch --baseurl ''"
 alias starthttp="python -m SimpleHTTPServer 8080"
 
+# Create an alias for kubectl and enable bash complete with it
+alias k='kubectl'
+complete -o default -o nospace -F __start_kubectl k
+
 source ~/dot_files_macos/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
