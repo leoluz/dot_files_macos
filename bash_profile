@@ -4,6 +4,7 @@ alias ll="ls -lG"
 alias jekylls="jekyll serve --watch --baseurl ''"
 alias starthttp="python -m SimpleHTTPServer 8080"
 alias gm="git checkout master && git fetch upstream && git rebase upstream/master"
+eval "$(hub alias -s)"
 
 # Create an alias for kubectl and enable bash complete with it
 alias k='kubectl'

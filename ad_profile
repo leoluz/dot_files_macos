@@ -10,6 +10,11 @@ sshkube() {
   ssh -t "${kube_ip}" kubectl "--namespace=${orchard_name}" $*
 }
 
+open_pull_request() {
+    hub pull-request -m $1 -r $prusers
+}
+
+alias openpr="open_pull_request $1"
 alias vpnstart="sudo openconnect -b --authgroup=Duo --user=leo.almeida iceman.appdirect.com"
 alias vpnstartbatman="sudo openconnect -b --authgroup=Duo --user=leo.almeida batman.appdirect.com"
 alias vpnstop="sudo pkill -SIGINT openconnect"
@@ -18,4 +23,6 @@ alias buildad="mvn clean install -pl '!appdirect' -Dmaven.test.skip=true -DskipT
 export MAVEN_DEBUG_OPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000"
 export MAVEN_OPTS="-Xms1024m -Xmx2048m -noverify -XX:MaxMetaspaceSize=760m"
 export KUBE_EDITOR="nvim"
+
+export prusers="duboisf,marcantoine-bibeau,lavoiedn,jagdeepgithub,Masterdo,alexgervais,joanroch"
 PATH="$HOME/dev/src/platform/platform-army-knife/kubernetes/kops:$PATH"
