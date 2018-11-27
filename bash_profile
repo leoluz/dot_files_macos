@@ -3,7 +3,8 @@
 alias ll="ls -lG"
 alias jekylls="jekyll serve --watch --baseurl ''"
 alias starthttp="python -m SimpleHTTPServer 8080"
-alias gm="git checkout master && git fetch upstream && git rebase upstream/master"
+alias gm="git checkout master && git fetch origin && git rebase origin/master"
+alias nopush="git remote set-url --push origin no_push"
 eval "$(hub alias -s)"
 
 # Create an alias for kubectl and enable bash complete with it
@@ -42,3 +43,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+

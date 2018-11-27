@@ -11,10 +11,10 @@ sshkube() {
 }
 
 open_pull_request() {
-    hub pull-request -m $1 -r $prusers
+    hub pull-request -r $prusers
 }
 
-alias openpr="open_pull_request $1"
+alias openpr="open_pull_request"
 alias vpnstart="sudo openconnect -b --authgroup=Duo --user=leo.almeida iceman.appdirect.com"
 alias vpnstartbatman="sudo openconnect -b --authgroup=Duo --user=leo.almeida batman.appdirect.com"
 alias vpnstop="sudo pkill -SIGINT openconnect"
