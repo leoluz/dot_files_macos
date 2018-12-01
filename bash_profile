@@ -7,8 +7,10 @@ alias gm="git checkout master && git fetch origin && git rebase origin/master"
 alias nopush="git remote set-url --push origin no_push"
 eval "$(hub alias -s)"
 
-# Create an alias for kubectl and enable bash complete with it
+# Kubernetes configs
 alias k='kubectl'
+alias kp="k get po --field-selector status.phase=Running"
+# Enable bash complete for k alias
 complete -o default -o nospace -F __start_kubectl k
 
 source ~/dot_files_macos/git-prompt.sh
