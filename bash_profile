@@ -4,6 +4,7 @@ alias ll="ls -lG"
 alias jekylls="jekyll serve --watch --baseurl ''"
 alias starthttp="python -m SimpleHTTPServer 8080"
 alias gm="git checkout master && git fetch origin && git rebase origin/master"
+alias gr="git fetch origin && git rebase origin/master"
 alias nopush="git remote set-url --push origin no_push"
 eval "$(hub alias -s)"
 
