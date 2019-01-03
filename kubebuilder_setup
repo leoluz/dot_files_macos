@@ -1,0 +1,5 @@
+#!/bin/bash
+
+kubebuilder_home="$HOME/dev/kubebuilder1.0.7"
+kubebuilder_bin="$kubebuilder_home/bin"
+PATH="$PATH:$kubebuilder_bin"

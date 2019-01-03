@@ -16,13 +16,22 @@ open_pull_request() {
 }
 
 kube_templator_validate() {
-    if [ ! -z $1 ]; then
-        logLevel="$1"
+
+    if [ ! -z $1 ] && [ $1 == 'local' ]; then
+        templatorImg="ktvalidate:local"
+    else
+        templatorImg="docker.appdirect.tools/kube-templator/validate:latest"
+    fi
+
+    if [ ! -z $2 ]; then
+        logLevel="$2"
     else
         logLevel="ERROR"
     fi
-    docker run --rm -v $(pwd):/tmp -v "$HOME/.config/hub":/app/hub -e LOG_LEVEL=$logLevel docker.appdirect.tools/kube-templator/validate:latest
+
+    docker run --rm -v $(pwd):/tmp -v "$HOME/.config/hub":/app/hub -e LOG_LEVEL=$logLevel $templatorImg
     rc=$?
+
     if [[ $rc != 0 ]]; then 
         echo "Execution error!"
     else
