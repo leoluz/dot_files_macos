@@ -28,7 +28,7 @@ PS1="$BLUE[$GREEN\u $BLUE\W]$YELLOW"'$(__git_ps1)'"$BLUE \$$RESET_COLOR "
 # System variables
 export GOPATH="$HOME/dev/go"
 export JAVA_HOME=$(/usr/libexec/java_home)
-PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:$HOME/dev/bin:$JAVA_HOME/bin:$GOPATH/bin:$PATH"
+PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:$JAVA_HOME/bin:$GOPATH/bin:$PATH"
 
 if [ -f ~/.ad_profile ]; then
     source ~/.ad_profile
@@ -49,3 +49,4 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
