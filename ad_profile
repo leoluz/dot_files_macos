@@ -3,16 +3,14 @@
 export MAVEN_DEBUG_OPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000"
 export MAVEN_OPTS="-Xms1024m -Xmx2048m -noverify -XX:MaxMetaspaceSize=760m"
 export KUBE_EDITOR="nvim"
+export jedis="duboisf,marcantoine-bibeau,lavoiedn,jagdeepgithub,Masterdo,alexgervais"
 
-export platusers="duboisf,marcantoine-bibeau,lavoiedn,jagdeepgithub,Masterdo,alexgervais"
-
-open_pull_request() {
-    if [ ! -z $1 ] && [ $1 == 'all' ]; then
-        prusers="-r $platusers"
-    else
-        prusers=""
+openpr() {
+    cmd="/usr/local/bin/hub pull-request --copy"
+    if [ -n "$1" ] && [ "$1" = "all" ]; then
+        cmd="$cmd -r $jedis"
     fi
-    hub pull-request --copy $prusers
+    eval $cmd
 }
 
 kube_templator_validate() {
@@ -40,7 +38,7 @@ kube_templator_validate() {
 }
 
 alias ktvalidate="kube_templator_validate"
-alias openpr="open_pull_request"
+#alias openpr="open_pull_request"
 alias vpnstart="sudo openconnect -b --authgroup=Duo --user=leo.almeida iceman.appdirect.com"
 alias vpnstartbatman="sudo openconnect -b --authgroup=Duo --user=leo.almeida batman.appdirect.com"
 alias vpnstop="sudo pkill -SIGINT openconnect"
