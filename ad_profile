@@ -8,7 +8,7 @@ export jedis="duboisf,marcantoine-bibeau,lavoiedn,jagdeepgithub,Masterdo,alexger
 openpr() {
     cmd="/usr/local/bin/hub pull-request --copy"
     if [ -n "$1" ] && [ "$1" = "all" ]; then
-        cmd="$cmd -r $jedis"
+        cmd="$cmd -r /team-platform"
     fi
     eval $cmd
 }
@@ -37,8 +37,8 @@ kube_templator_validate() {
     fi
 }
 
+alias plt="cd $HOME/dev/src/platform"
 alias ktvalidate="kube_templator_validate"
-#alias openpr="open_pull_request"
 alias vpnstart="sudo openconnect -b --authgroup=Duo --user=leo.almeida iceman.appdirect.com"
 alias vpnstartbatman="sudo openconnect -b --authgroup=Duo --user=leo.almeida batman.appdirect.com"
 alias vpnstop="sudo pkill -SIGINT openconnect"

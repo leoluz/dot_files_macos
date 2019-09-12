@@ -118,3 +118,8 @@ alias gm="git checkout master && git fetch origin && git rebase origin/master"
 alias gr="git fetch origin && git rebase origin/master"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
