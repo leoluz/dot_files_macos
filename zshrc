@@ -1,10 +1,20 @@
+export DOT_FILES_HOME="$HOME/dot_files_macos"
 export GOPATH="$HOME/dev/go"
 export JAVA_HOME=$(/usr/libexec/java_home)
-PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:$JAVA_HOME/bin:$GOPATH/bin:$PATH"
+[ -f $HOME/.ad_profile ] && source $HOME/.ad_profile
+[ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
+[ -d $HOME/.krew/bin ] && export PATH="${PATH}:${HOME}/.krew/bin"
+[ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
+PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:$JAVA_HOME/bin:$GOPATH/bin:$DOT_FILES_HOME/bin:$PATH"
+type nvim >/dev/null 2>&1 && export EDITOR="nvim"
 
-if [ -f ~/.ad_profile ]; then
-    source ~/.ad_profile
-fi
+# Configures homebrew completions
+#if type brew &>/dev/null; then
+    #echo "has homebrew"
+    #fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+    #FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+#fi
+
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -77,9 +87,15 @@ ZSH_CUSTOM="$HOME/dot_files_macos/zsh-custom"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
+    github
     kube-ps1
     kubectl
+    argocd
 )
+
+#if [ -f $HOME/dot_files_macos/git-completion.bash ]; then
+    #source $HOME/dot_files_macos/git-completion.bash
+#fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -113,7 +129,6 @@ PROMPT='$(kube_ps1)'$PROMPT
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-eval "$(hub alias -s)"
 alias gm="git checkout master && git fetch origin && git rebase origin/master"
 alias gr="git fetch origin && git rebase origin/master"
 
@@ -122,4 +137,3 @@ alias gr="git fetch origin && git rebase origin/master"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-

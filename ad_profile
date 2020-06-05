@@ -4,11 +4,13 @@ export MAVEN_DEBUG_OPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transp
 export MAVEN_OPTS="-Xms1024m -Xmx2048m -noverify -XX:MaxMetaspaceSize=760m"
 export KUBE_EDITOR="nvim"
 export jedis="duboisf,marcantoine-bibeau,lavoiedn,jagdeepgithub,Masterdo,alexgervais"
+export GOPRIVATE=github.com/AppDirect/*
+export KUBECONFIG="$HOME/.kube/appdirect.config:$HOME/.kube/config"
 
 openpr() {
     cmd="/usr/local/bin/hub pull-request --copy"
     if [ -n "$1" ] && [ "$1" = "all" ]; then
-        cmd="$cmd -r /team-platform"
+        cmd="$cmd -r /platform"
     fi
     eval $cmd
 }
@@ -44,4 +46,4 @@ alias vpnstartbatman="sudo openconnect -b --authgroup=Duo --user=leo.almeida bat
 alias vpnstop="sudo pkill -SIGINT openconnect"
 alias buildad="mvn clean install -pl '!appdirect' -Dmaven.test.skip=true -DskipTests=true"
 
-PATH="$HOME/dev/src/platform/platform-army-knife/kubernetes/kops:$PATH"
+PATH="$HOME/dev/src/platform/platform-army-knife/kubernetes/kops:$PATH:/usr/local/kubebuilder/bin"
