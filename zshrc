@@ -1,6 +1,8 @@
 export DOT_FILES_HOME="$HOME/dot_files_macos"
 export GOPATH="$HOME/dev/go"
 export JAVA_HOME=$(/usr/libexec/java_home)
+export MANPAGER='nvim +Man!'
+export MANWIDTH=999
 [ -f $HOME/.ad_profile ] && source $HOME/.ad_profile
 [ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
 [ -d $HOME/.krew/bin ] && export PATH="${PATH}:${HOME}/.krew/bin"
