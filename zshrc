@@ -90,9 +90,9 @@ ZSH_CUSTOM="$HOME/dot_files_macos/zsh-custom"
 plugins=(
     git
     github
-    kube-ps1
     kubectl
     argocd
+    kube-ps1
 )
 
 #if [ -f $HOME/dot_files_macos/git-completion.bash ]; then

@@ -559,44 +559,83 @@
   # Print all received window events.
   #print_events: false
 
-
+key_bindings:
+  - { key: K, mods: Command|Shift, chars: "\x01\x4b" } # resize up
+  - { key: J, mods: Command|Shift, chars: "\x01\x4a" } # resize down
+  - { key: L, mods: Command|Shift, chars: "\x01\x4c" } # resize right
+  - { key: H, mods: Command|Shift, chars: "\x01\x48" } # resize left
+  - { key: K, mods: Command, chars: "\x01\x6b" } # move upper panel
+  - { key: J, mods: Command, chars: "\x01\x6a" } # move below panel
+  - { key: L, mods: Command, chars: "\x01\x6c" } # move right panel
+  - { key: H, mods: Command, chars: "\x01\x68" } # move left panel
+  - { key: S, mods: Command, chars: "\x01\x2d" } # split horizontally
+  - { key: D, mods: Command, chars: "\x01\x7c" } # split vertically
+  - { key: T, mods: Command, chars: "\x01\x63" } # new window
+  - { key: Z, mods: Command, chars: "\x01\x7a" } # zoom toggle
+  - { key: N, mods: Command, chars: "\x01\x6e" } # next window
+  - { key: P, mods: Command, chars: "\x01\x70" } # previous window
+  - { key: R, mods: Command|Shift, chars: "\x01\x2c" } # rename window
+  - { key: R, mods: Command, chars: "\x01\x52" } # rename window
+  - { key: F, mods: Command, chars: "\x01\x09" } # find buffer
+  - { key: LBracket, mods: Command, chars: "\x01\x5b" } # trigger tmux extrakto
+  - { key: G, mods: Command, chars: "\x01\x67" } # trigger tmux extrakto
 
 window:
   startup_mode: Fullscreen
+
 font:
   size: 20.0
+  normal:
+    family: Meslo LG S DZ for Powerline
+    style: Regular
+  bold:
+    family: Meslo LG S DZ for Powerline
+    style: Bold
+  italic:
+    family: Meslo LG S DZ for Powerline
+    style: Italic
+  bold_italic:
+    family: Meslo LG S DZ for Powerline
+    style: Bold Italic
+
+
+cursor:
+  text: '#000000'
+  cursor: '#ffffff'
+selection:
+  text: '#eaeaea'
+  background: '#404040'
+
 
 # color_start
-# taerminal.yaml
-# Colors (Taerminal)
+# dracula.yaml
+# Colors (Dracula)
 colors:
   # Default colors
   primary:
-    background: '0x26282a'
-    foreground: '0xf0f0f0'
-  cursor:
-    background: '0xf0f0f0'
-    foreground: '0x26282a'
+    background: '#282a36'
+    foreground: '#f8f8f2'
 
   # Normal colors
   normal:
-    black:   '0x26282a'
-    red:     '0xff8878'
-    green:   '0xb4fb73'
-    yellow:  '0xfffcb7'
-    blue:    '0x8bbce5'
-    magenta: '0xffb2fe'
-    cyan:    '0xa2e1f8'
-    white:   '0xf1f1f1'
+    black:   '#000000'
+    red:     '#ff5555'
+    green:   '#50fa7b'
+    yellow:  '#f1fa8c'
+    blue:    '#caa9fa'
+    magenta: '#ff79c6'
+    cyan:    '#8be9fd'
+    white:   '#bfbfbf'
 
   # Bright colors
   bright:
-    black:   '0x6f6f6f'
-    red:     '0xfe978b'
-    green:   '0xd6fcba'
-    yellow:  '0xfffed5'
-    blue:    '0xc2e3ff'
-    magenta: '0xffc6ff'
-    cyan:    '0xc0e9f8'
-    white:   '0xffffff'
+    black:   '#575b70'
+    red:     '#ff6e67'
+    green:   '#5af78e'
+    yellow:  '#f4f99d'
+    blue:    '#caa9fa'
+    magenta: '#ff92d0'
+    cyan:    '#9aedfe'
+    white:   '#e6e6e6'
+
 # color_end
