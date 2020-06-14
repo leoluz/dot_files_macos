@@ -8,7 +8,9 @@ mkdir -p $kitty_cfgdir
 [ ! -f $kitty_cfgdir/kitty.conf ] && ln -s $script_dir/kitty.conf $kitty_cfgdir/kitty.conf
 [ ! -d $kitty_cfgdir/kitty-themes ] && git clone git@github.com:dexpota/kitty-themes.git $kitty_cfgdir/kitty-themes
 [ ! -d $kitty_cfgdir/kittens ] && mkdir $kitty_cfgdir/kittens && ln -s $script_dir/kitty/kittens/zoom_toggle.py $kitty_cfgdir/kittens/zoom_toggle.py
-[ ! -f $kitty_cfgdir/theme.conf ] && ln -s $kitty_cfgdir/kitty-themes/themes/Atom.conf $kitty_cfgdir/theme.conf
+[ ! -f $kitty_cfgdir/theme.conf ] && ln -s $kitty_cfgdir/kitty-themes/themes/OneDark.conf $kitty_cfgdir/theme.conf
+[ ! -f $kitty_cfgdir/wallpaper.png ] && ln -s $script_dir/wallpaper/eva.png $kitty_cfgdir/wallpaper.png
+#[ ! -f $kitty_cfgdir/theme.conf ] && ln -s $kitty_cfgdir/kitty-themes/themes/Atom.conf $kitty_cfgdir/theme.conf
 
 # Alacritty setup
 alacritty_cfgdir="$HOME/.config/alacritty"
