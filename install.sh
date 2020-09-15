@@ -19,6 +19,10 @@ mkdir -p $alacritty_cfgdir
 [ ! -d $alacritty_cfgdir/eendroroy-theme ] && git clone git@github.com:eendroroy/alacritty-theme.git $alacritty_cfgdir/eendroroy-theme
 [ ! -d $alacritty_cfgdir/williamson-theme ] && git clone https://github.com/aaron-williamson/base16-alacritty $alacritty_cfgdir/williamson-theme
 
+# Oh-my-zsh setup
+ohmyzsh_cfgdir="$HOME/.oh-my-zsh"
+[ ! -d $ohmyzsh_cfgdir ] && git clone git@github.com:ohmyzsh/ohmyzsh.git $ohmyzsh_cfgdir
+
 # Tmux step
 tmux_cfgdir="$HOME/.config/tmux"
 mkdir -p $tmux_cfgdir
