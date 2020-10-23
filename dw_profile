@@ -1,0 +1,14 @@
+#!/bin/bash
+
+export KUBE_EDITOR="nvim"
+export GOPRIVATE=github.com/datawire/*
+
+openpr() {
+    cmd="/usr/local/bin/hub pull-request --copy"
+    if [ -n "$1" ] && [ "$1" = "all" ]; then
+        cmd="$cmd -r /platform"
+    fi
+    eval $cmd
+}
+
+alias dw="cd $HOME/dev/git/dw"

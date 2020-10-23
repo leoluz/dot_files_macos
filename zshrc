@@ -1,14 +1,16 @@
 export DOT_FILES_HOME="$HOME/dot_files_macos"
 export GOPATH="$HOME/dev/go"
-export JAVA_HOME=$(/usr/libexec/java_home)
+#export JAVA_HOME=$(/usr/libexec/java_home)
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 [ -f $HOME/.ad_profile ] && source $HOME/.ad_profile
+[ -f $HOME/.dw_profile ] && source $HOME/.dw_profile
 [ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
 [ -d $HOME/.krew/bin ] && export PATH="${PATH}:${HOME}/.krew/bin"
 [ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
 PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:$JAVA_HOME/bin:$GOPATH/bin:$DOT_FILES_HOME/bin:$PATH"
 type nvim >/dev/null 2>&1 && export EDITOR="nvim"
+type hub >/dev/null 2>&1 && eval "$(hub alias -s)"
 
 # Configures homebrew completions
 #if type brew &>/dev/null; then

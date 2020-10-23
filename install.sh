@@ -38,7 +38,8 @@ mkdir -p $tmux_cfgdir
 # TODO check/install 'reattach-to-user-namespace' if in macos
 
 # Misc setup
-[ ! -f $HOME/.ad_profile ] && ln -s $script_dir/ad_profile $HOME/.ad_profile
+#[ ! -f $HOME/.ad_profile ] && ln -s $script_dir/ad_profile $HOME/.ad_profile
+[ ! -f $HOME/.dw_profile ] && ln -s $script_dir/dw_profile $HOME/.dw_profile
 [ ! -f $HOME/.zshrc ] && ln -s $script_dir/zshrc $HOME/.zshrc
 [ ! -f $HOME/.gitconfig ] && ln -s $script_dir/gitconfig $HOME/.gitconfig
 [ ! -f $HOME/.bash_profile ] && ln -s $script_dir/bash_profile $HOME/.bash_profile
