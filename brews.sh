@@ -3,6 +3,7 @@ brew install go
 brew install hub
 brew install tree
 brew install node
+brew install kubectl
 brew install fzf
 $(brew --prefix)/opt/fzf/install
 brew install java11
@@ -18,3 +19,4 @@ brew cask install \
   font-hack-nerd-font
 brew install --HEAD neovim
 brew cask install google-cloud-sdk
+brew cask install kitty
