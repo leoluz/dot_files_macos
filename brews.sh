@@ -14,4 +14,7 @@ brew cask install \
   font-fira-mono-for-powerline \
   font-fira-sans \
   font-menlo-for-powerline \
-  font-fira-code-nerd-font
+  font-fira-code-nerd-font \
+  font-hack-nerd-font
+brew install --HEAD neovim
+brew cask install google-cloud-sdk

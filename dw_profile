@@ -2,11 +2,18 @@
 
 export KUBE_EDITOR="nvim"
 export GOPRIVATE=github.com/datawire/*
+export SYSTEM_A_TEAM="maxlegault,abstractmachines,alexgervais"
+export CLOUDSDK_PYTHON=python2 #necessary for gcloud cli work if python3 is installed
+
+# System-A configs
+export POSTGRES_USER=postgres
+export POSTGRES_PASSWORD=postgres
+export POSTGRES_DB=postgres
 
 openpr() {
     cmd="/usr/local/bin/hub pull-request --copy"
     if [ -n "$1" ] && [ "$1" = "all" ]; then
-        cmd="$cmd -r /platform"
+        cmd="$cmd -r $SYSTEM_A_TEAM"
     fi
     eval $cmd
 }
