@@ -3,7 +3,14 @@
 export KUBE_EDITOR="nvim"
 export GOPRIVATE=github.com/datawire/*
 export SYSTEM_A_TEAM="maxlegault,abstractmachines,alexgervais"
-export CLOUDSDK_PYTHON=python2 #necessary for gcloud cli work if python3 is installed
+
+#export CLOUDSDK_PYTHON=python2 #necessary for gcloud cli work if python3 is installed
+gcloud_path="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+gcloud_compl="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+[ -f "/usr/local/opt/python@3.8/libexec/bin/python" ] && export CLOUDSDK_PYTHON="/usr/local/opt/python@3.8/libexec/bin/python"
+[ -f "$gcloud_path" ] && source "$gcloud_path"
+[ -f "$gcloud_compl" ] && source "$gcloud_compl"
+
 
 # System-A configs
 export POSTGRES_USER=postgres

@@ -2,6 +2,7 @@ brew install git
 brew install go
 brew install hub
 brew install tree
+brew install pstree
 brew install node
 brew install kubectl
 brew install fzf
