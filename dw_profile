@@ -11,7 +11,6 @@ gcloud_compl="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/compl
 [ -f "$gcloud_path" ] && source "$gcloud_path"
 [ -f "$gcloud_compl" ] && source "$gcloud_compl"
 
-
 # System-A configs
 export POSTGRES_USER=postgres
 export POSTGRES_PASSWORD=postgres

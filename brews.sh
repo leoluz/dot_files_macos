@@ -5,8 +5,10 @@ brew install tree
 brew install pstree
 brew install node
 brew install kubectl
+brew install coreutils
 brew install fzf
 $(brew --prefix)/opt/fzf/install
+brew install ripgrep
 brew install java11
 brew install svn #required for installing fira fonts :(
 brew tap homebrew/cask-fonts
