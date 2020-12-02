@@ -135,6 +135,7 @@ PROMPT='$(kube_ps1)'$PROMPT
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias gm="git checkout master && git fetch origin && git rebase origin/master"
 alias gr="git fetch origin && git rebase origin/master"
+alias swagger="docker run --rm -it -e GOPATH=$GOPATH:/go -v $HOME:$HOME -w $(pwd) quay.io/goswagger/swagger"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

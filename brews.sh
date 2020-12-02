@@ -23,3 +23,4 @@ brew cask install \
 brew install --HEAD neovim
 brew cask install google-cloud-sdk
 brew cask install kitty
+brew tap johanhaleby/kubetail && brew install kubetail
