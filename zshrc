@@ -1,14 +1,18 @@
+export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:$JAVA_HOME/bin:$GOPATH/bin:$DOT_FILES_HOME/bin:$PATH"
 export DOT_FILES_HOME="$HOME/dot_files_macos"
 export GOPATH="$HOME/dev/go"
 export JAVA_HOME=$(/usr/libexec/java_home)
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
+export GPG_TTY=$(tty)
 [ -f $HOME/.ad_profile ] && source $HOME/.ad_profile
 [ -f $HOME/.dw_profile ] && source $HOME/.dw_profile
 [ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
-[ -d $HOME/.krew/bin ] && export PATH="${PATH}:${HOME}/.krew/bin"
+[ -d $HOME/.krew/bin ] && export PATH="${HOME}/.krew/bin:${PATH}"
+[ -d $HOME/dev/bin ] && export PATH="${HOME}/dev/bin:${PATH}"
+[ -d $GOPATH/bin ] && export PATH="${GOPATH}/bin:${PATH}"
+[ -d $HOME/dev/nvim-osx64 ] && export PATH="${HOME}/dev/nvim-osx64/bin:${PATH}"
 [ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
-PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:$JAVA_HOME/bin:$GOPATH/bin:$DOT_FILES_HOME/bin:$PATH"
 type nvim >/dev/null 2>&1 && export EDITOR="nvim"
 type hub >/dev/null 2>&1 && eval "$(hub alias -s)"
 
@@ -133,8 +137,19 @@ PROMPT='$(kube_ps1)'$PROMPT
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias gm="git checkout master && git fetch origin && git rebase origin/master"
-alias gr="git fetch origin && git rebase origin/master"
+function gm() {
+    main=$(git remote show origin | awk '/HEAD branch/ {print $NF}')
+    git checkout $main
+    git fetch origin 
+    git rebase origin/$main
+}
+function gr() {
+    main=$(git remote show origin | awk '/HEAD branch/ {print $NF}')
+    git fetch origin 
+    git rebase origin/$main
+}
+unalias gm
+unalias gr
 alias swagger="docker run --rm -it -e GOPATH=$GOPATH:/go -v $HOME:$HOME -w $(pwd) quay.io/goswagger/swagger"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

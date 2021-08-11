@@ -1,17 +1,19 @@
 [user]
-    email = leo.almeida@appdirect.com
+    email = leonardoluz@datawire.io
     name = Leonardo Luz Almeida
+	signingkey = 861A6B9C
 [alias]
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    branches = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 [rerere]
     enable = true
-[diff]
-	tool = p4merge
+;[diff]
+	;tool = p4merge
 [difftool]
     prompt = false
 [merge]
     keepBackup = false
-	tool = p4merge
+	tool = nvim
 [mergetool]
     prompt = false
 	keepBackup = false
@@ -21,26 +23,13 @@
 	autosquash = true
 [url "git@github.com:"]
     insteadOf = https://github.com/
-[difftool "meld"]
-  trustExitCode = true
-  cmd = open -W -n -a Meld --args $(cd $(dirname \"$LOCAL\") && pwd)/$(basename \"$LOCAL\") $(cd $(dirname \"$REMOTE\") && pwd)/$(basename \"$REMOTE\")
-[difftool "vscode"]
-  cmd = code --wait --diff $LOCAL $REMOTE
-[mergetool "meld"]
-  trustExitCode = true
-  cmd = open -W -n -a Meld --args --auto-merge  $(cd $(dirname \"$LOCAL\") && pwd)/$(basename \"$LOCAL\") $(cd $(dirname \"$BASE\") && pwd)/$(basename \"$BASE\") $(cd $(dirname \"$REMOTE\") && pwd)/$(basename \"$REMOTE\") --output=$(cd $(dirname \"$MERGED\") && pwd)/$(basename \"$MERGED\")
-[mergetool "vscode"]
-  cmd = code --wait $MERGED
 [mergetool "nvim"]
-  cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
-[mergetool "p4merge"]
-  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "\"$PWD/$BASE\"" "\"$PWD/$REMOTE\"" "\"$PWD/$LOCAL\"" "\"$PWD/$MERGED\""
-  keepTemporaries = false
-  trustExitCode = false
-  keepBackup = false
-[difftool "p4merge"]
-  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "\"$REMOTE\"" "\"$LOCAL\""
+  cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [pull]
 	ff = only
 [push]
 	default = current
+[commit]
+	gpgsign = true
+[gpg]
+	program = /usr/local/bin/gpg

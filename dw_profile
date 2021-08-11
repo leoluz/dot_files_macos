@@ -2,7 +2,8 @@
 
 export KUBE_EDITOR="nvim"
 export GOPRIVATE=github.com/datawire/*
-export SYSTEM_A_TEAM="maxlegault,abstractmachines,alexgervais"
+#export SYSTEM_A_TEAM="maxlegault,abstractmachines,alexgervais"
+export REVIEWERS="datawire/system-a, rhs, dwluishernandez"
 
 #export CLOUDSDK_PYTHON=python2 #necessary for gcloud cli work if python3 is installed
 gcloud_path="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
@@ -12,16 +13,21 @@ gcloud_compl="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/compl
 [ -f "$gcloud_compl" ] && source "$gcloud_compl"
 
 # System-A configs
-export POSTGRES_USER=postgres
-export POSTGRES_PASSWORD=postgres
-export POSTGRES_DB=postgres
+#export POSTGRES_USER=postgres
+#export POSTGRES_PASSWORD=postgres
+#export POSTGRES_DB=postgres
 
 openpr() {
-    cmd="/usr/local/bin/hub pull-request --copy"
+    main=$(git remote show origin | awk '/HEAD branch/ {print $NF}')
+    cmd="/usr/local/bin/hub pull-request --base $main --copy"
     if [ -n "$1" ] && [ "$1" = "all" ]; then
-        cmd="$cmd -r $SYSTEM_A_TEAM"
+        cmd="$cmd -r $REVIEWERS"
     fi
     eval $cmd
+}
+
+decode() {
+    echo -n "$1" | base64 -D | pbcopy
 }
 
 alias dw="cd $HOME/dev/git/dw"
