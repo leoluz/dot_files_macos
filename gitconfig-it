@@ -1,0 +1,6 @@
+[user]
+    email = leonardo_almeida@intuit.com
+    name = Leonardo Luz Almeida
+
+[url "ssh://git@github.intuit.com/"]
+    insteadOf = https://github.intuit.com/

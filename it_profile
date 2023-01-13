@@ -1,0 +1,22 @@
+#!/bin/bash
+
+export KUBE_EDITOR="nvim"
+export REVIEWERS=""
+
+# add argocd dist in path
+[ -d $HOME/dev/go/src/github.com/argoproj/argo-cd/dist ] && export PATH="${HOME}/dev/go/src/github.com/argoproj/argo-cd/dist:${PATH}"
+
+openpr() {
+    main=$(git remote show origin | awk '/HEAD branch/ {print $NF}')
+    cmd="/usr/local/bin/hub pull-request --base $main --copy"
+    if [ -n "$1" ] && [ "$1" = "all" ]; then
+        cmd="$cmd -r $REVIEWERS"
+    fi
+    eval $cmd
+}
+
+decode() {
+    echo -n "$1" | base64 -D | pbcopy
+}
+
+alias it="cd $HOME/dev/git/intuit"
