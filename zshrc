@@ -198,3 +198,4 @@ alias ppid="ps aux | grep dist/argocd | grep -v BIN_MODE | grep config-dir-path 
 # get ArgoCD API server pid
 alias apid="ps aux | grep dist/argocd | grep -v BIN_MODE | grep '\-\-disable-auth' | awk '{print \$2}'"
 
+type fastfetch >/dev/null 2>&1 && fastfetch
