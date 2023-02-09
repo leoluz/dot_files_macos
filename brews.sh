@@ -24,4 +24,4 @@ brew install --cask \
   font-menlo-for-powerline \
   font-fira-code-nerd-font \
   font-hack-nerd-font
-brew install neofetch
+brew install fastfetch
