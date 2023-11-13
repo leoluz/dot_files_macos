@@ -1,35 +1,3 @@
-export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:$JAVA_HOME/bin:$GOPATH/bin:$DOT_FILES_HOME/bin:$PATH"
-export DOT_FILES_HOME="$HOME/dot_files_macos"
-export GOPATH="$HOME/dev/go"
-export JAVA_HOME=$(/usr/libexec/java_home)
-#export JAVA_HOME="/usr"
-export MANPAGER='nvim +Man!'
-export MANWIDTH=999
-export GPG_TTY=$(tty)
-export NVM_DIR="$HOME/.nvm"
-[ -f $HOME/.ad_profile ] && source $HOME/.ad_profile
-[ -f $HOME/.dw_profile ] && source $HOME/.dw_profile
-[ -f $HOME/.it_profile ] && source $HOME/.it_profile
-[ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
-[ -d $HOME/.krew/bin ] && export PATH="${HOME}/.krew/bin:${PATH}"
-[ -d $HOME/dev/bin ] && export PATH="${HOME}/dev/bin:${PATH}"
-[ -d $GOPATH/bin ] && export PATH="${GOPATH}/bin:${PATH}"
-[ -d $HOME/dev/nvim-osx64 ] && export PATH="${HOME}/dev/nvim-osx64/bin:${PATH}"
-[ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
-[ -d $HOME/bin/google-cloud-sdk/bin ] && export PATH="${HOME}/bin/google-cloud-sdk/bin:${PATH}"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-[ -d $HOME/bin/codeql ] && export PATH="$HOME/bin/codeql:${PATH}"
-type nvim >/dev/null 2>&1 && export EDITOR="nvim"
-
-# Configures homebrew completions
-#if type brew &>/dev/null; then
-    #echo "has homebrew"
-    #fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-    #FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-#fi
-
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -39,18 +7,13 @@ export ZSH="$HOME/.oh-my-zsh"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="refined"
-ZSH_THEME="kolo"
-#ZSH_THEME="amuse"
-#ZSH_THEME="avit"
-#ZSH_THEME="robbyrussell"
-#ZSH_THEME="af-magic"
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="refined"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
@@ -60,11 +23,16 @@ ZSH_THEME="kolo"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# zstyle ':omz:update' frequency 13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -76,6 +44,9 @@ ZSH_THEME="kolo"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -92,30 +63,24 @@ ZSH_THEME="kolo"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM="$HOME/dot_files_macos/zsh-custom"
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-    github
     kubectl
     argocd
     kube-ps1
 )
 
-#if [ -f $HOME/dot_files_macos/git-completion.bash ]; then
-    #source $HOME/dot_files_macos/git-completion.bash
-#fi
-
 source $ZSH/oh-my-zsh.sh
 
-PROMPT='$(kube_ps1)'$PROMPT
-
 # User configuration
+source $HOME/dot_files_macos/profile.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -132,9 +97,6 @@ PROMPT='$(kube_ps1)'$PROMPT
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -143,59 +105,3 @@ PROMPT='$(kube_ps1)'$PROMPT
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# gm will checkout the upstream ('origin' if 'upstream' is not available) HEAD branch, fetch remote and rebase
-function gm() {
-    if [[ $(git remote) =~ "upstream$" ]]; then
-        REMOTE=upstream
-    else
-        REMOTE=origin
-    fi
-    MAIN=$(git remote show $REMOTE | awk '/HEAD branch/ {print $NF}')
-    git checkout $MAIN
-    git fetch $REMOTE
-    git rebase $REMOTE/$MAIN
-}
-#
-# gr will fetch the upstream HEAD branch rebase
-function gr() {
-    if [[ $(git remote) =~ "upstream$" ]]; then
-        REMOTE=upstream
-    else
-        REMOTE=origin
-    fi
-    MAIN=$(git remote show $REMOTE | awk '/HEAD branch/ {print $NF}')
-    git fetch $REMOTE
-    git rebase $REMOTE/$MAIN
-}
-unalias gm
-unalias gr
-# alias swagger="docker run --rm -it -e GOPATH=$GOPATH:/go -v $HOME:$HOME -w $(pwd) quay.io/goswagger/swagger"
-#
-capture_osx() {
-    sudo dtrace -p "$1" -qn '
-        syscall::write*:entry
-        /pid == $target && arg0 == 1/ {
-            printf("%s", copyinstr(arg1, arg2));
-        }
-    '
-}
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-alias luamake=/Users/lalmeida1/dev/git/lua-language-server/3rd/luamake/luamake
-
-# get ArgoCD controller pid
-alias cpid="ps aux | grep dist/argocd | grep -v BIN_MODE | grep repo-server | grep -v dex-server | awk '{print \$2}'"
-# get ArgoCD repo pid
-alias rpid="ps aux | grep dist/argocd | grep -v BIN_MODE | grep -v dex-server | grep '\-\-port' | awk '{print \$2}'"
-# get ArgoCD CMP pid
-alias ppid="ps aux | grep dist/argocd | grep -v BIN_MODE | grep config-dir-path | awk '{print \$2}'"
-# get ArgoCD API server pid
-alias apid="ps aux | grep dist/argocd | grep -v BIN_MODE | grep '\-\-disable-auth' | awk '{print \$2}'"
-
-type fastfetch >/dev/null 2>&1 && fastfetch

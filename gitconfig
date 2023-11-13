@@ -1,6 +1,7 @@
 [user]
     email = leoluz@users.noreply.github.com
     name = Leonardo Luz Almeida
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICEceksjHRzE8SOBtXWuUdB6XSsyDgjZ4EZO7qLG8su4
 [alias]
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
     branches = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
@@ -26,11 +27,15 @@
 	ff = only
 [push]
 	default = current
-[commit]
-	;gpgsign = true
-[gpg]
-	program = /usr/local/bin/gpg
 [includeIf "gitdir:~/dev/git/intuit/"]
     path = ~/dot_files_macos/gitconfig-it
 [includeIf "gitdir:~/dev/go/src/github.com/argoproj/"]
     path = ~/dot_files_macos/gitconfig-it
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[commit]
+  gpgsign = true
+[oh-my-zsh]
+	hide-status = 1
