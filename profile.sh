@@ -69,17 +69,48 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
 
-# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# alias luamake=/Users/lalmeida1/dev/git/lua-language-server/3rd/luamake/luamake
-
-# get ArgoCD controller pid
-alias cpid="ps aux | grep dist/argocd | grep -v BIN_MODE | grep repo-server | grep -v dex-server | awk '{print \$2}'"
-# get ArgoCD repo pid
-alias rpid="ps aux | grep dist/argocd | grep -v BIN_MODE | grep -v dex-server | grep '\-\-port' | awk '{print \$2}'"
-# get ArgoCD CMP pid
-alias ppid="ps aux | grep dist/argocd | grep -v BIN_MODE | grep config-dir-path | awk '{print \$2}'"
-# get ArgoCD API server pid
-alias apid="ps aux | grep dist/argocd | grep -v BIN_MODE | grep '\-\-disable-auth' | awk '{print \$2}'"
+# get ArgoCD pid from the given component
+pid_argocd() {
+    local ps_line=""
+    local component=${1:-}
+    if [[ "$component" == "" ]]; then
+        echo "error: Argo CD component must be provided."
+        echo "possible values:"
+        echo "controller, repo, cmp, api"
+        return 1
+    fi
+    case $component in
+        controller)
+            ps_line=$(ps aux | grep dist/argocd | grep -v BIN_MODE | grep repo-server | grep -v dex-server)
+            ;;
+        repo)
+            ps_line=$(ps aux | grep dist/argocd | grep -v BIN_MODE | grep -v dex-server | grep '\-\-port')
+            ;;
+        cmp)
+            ps_line$(ps aux | grep dist/argocd | grep -v BIN_MODE | grep config-dir-path)
+            ;;
+        api)
+            ps_line=$(ps aux | grep dist/argocd | grep -v BIN_MODE | grep '\-\-disable-auth')
+            ;;
+        *)
+            echo "error: invalid Argo CD component provided."
+            echo "possible values:"
+            echo "controller, repo, cmp, api"
+            return 1
+    esac
+    if [[ "$ps_line" == "" ]]; then
+        echo "error: Argo CD $component not running.."
+        return 1
+    fi
+    echo $ps_line | awk '{print $2}'
+}
+debug_argocd() {
+    local component=${1:-}
+    if ! out=$(pid_argocd "$component"); then
+        echo $out
+        return 1
+    fi
+    dlv attach $out -l 127.0.0.1:38697 --headless
+}
 
 type fastfetch >/dev/null 2>&1 && fastfetch
