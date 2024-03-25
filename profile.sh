@@ -16,7 +16,7 @@ export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # [ -d $HOME/bin/codeql ] && export PATH="$HOME/bin/codeql:${PATH}"
-[ -f $HOME/.it_profile ] && source $HOME/.it_profile
+[ -L $HOME/.it_profile ] && source $HOME/.it_profile
 [ -d $HOME/dev/bin ] && export PATH="${HOME}/dev/bin:${PATH}"
 [ -d $GOPATH/bin ] && export PATH="${GOPATH}/bin:${PATH}"
 type nvim >/dev/null 2>&1 && export EDITOR="nvim"

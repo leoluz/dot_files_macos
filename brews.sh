@@ -4,8 +4,8 @@
 #brew tap johanhaleby/kubetail && brew install kubetail
 #brew install java11
 #brew install git
-brew install go
 #brew install hub
+brew install go
 brew install tree
 brew install pstree
 brew install node
@@ -14,6 +14,7 @@ brew install coreutils
 brew install fzf
 $(brew --prefix)/opt/fzf/install
 brew install ripgrep
+brew install fd
 brew install svn #required for installing fira fonts :(
 brew tap homebrew/cask-fonts
 brew install --cask \

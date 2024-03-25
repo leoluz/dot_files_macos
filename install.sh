@@ -19,6 +19,7 @@ script_dir=$(current_script_dir)
 # Kitty setup
 kitty_cfgdir="$HOME/.config/kitty"
 [ ! -d $kitty_cfgdir ] && mkdir -p $kitty_cfgdir
+[ -f $kitty_cfgdir/kitty.conf ] && rm $kitty_cfgdir/kitty.conf
 [ ! -L $kitty_cfgdir/kitty.conf ] && ln -s $script_dir/kitty.conf $kitty_cfgdir/kitty.conf
 [ ! -d $kitty_cfgdir/kitty-themes ] && git clone --depth 1 git@github.com:dexpota/kitty-themes.git $kitty_cfgdir/kitty-themes
 [ ! -d $kitty_cfgdir/tokyonight-theme ] && git clone --depth 1 git@github.com:folke/tokyonight.nvim.git $kitty_cfgdir/tokyonight-theme
@@ -28,8 +29,9 @@ kitty_cfgdir="$HOME/.config/kitty"
 [ ! -L $kitty_cfgdir/session.conf ] && ln -s $script_dir/kitty/session.conf $kitty_cfgdir/session.conf
 
 # Oh-my-zsh setup
-ohmyzsh_cfgdir="$HOME/.oh-my-zsh"
-[ ! -d $ohmyzsh_cfgdir ] && git clone git@github.com:ohmyzsh/ohmyzsh.git $ohmyzsh_cfgdir
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 # Misc setup
 [ ! -L $HOME/.it_profile ] && ln -s $script_dir/it_profile $HOME/.it_profile
