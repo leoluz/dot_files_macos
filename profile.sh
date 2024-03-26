@@ -1,7 +1,7 @@
 export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:$JAVA_HOME/bin:$GOPATH/bin:$DOT_FILES_HOME/bin:$PATH"
 export DOT_FILES_HOME="$HOME/dot_files_macos"
 export GOPATH="$HOME/dev/go"
-export JAVA_HOME=$(/usr/libexec/java_home)
+# export JAVA_HOME=$(/usr/libexec/java_home)
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 export GPG_TTY=$(tty)
