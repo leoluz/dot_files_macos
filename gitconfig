@@ -22,15 +22,16 @@
 [url "git@github.com:"]
     insteadOf = https://github.com/
 [mergetool "nvim"]
-  cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+  ; cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+  cmd = nvim -f -c \"DiffviewOpen\"
 [pull]
 	ff = only
 [push]
 	default = current
 [includeIf "gitdir:~/dev/git/intuit/"]
-    path = ~/dot_files_macos/gitconfig-it
+    path = ~/dev/git/dot_files_macos/gitconfig-it
 [includeIf "gitdir:~/dev/go/src/github.com/argoproj/"]
-    path = ~/dot_files_macos/gitconfig-it
+    path = ~/dev/git/dot_files_macos/gitconfig-it
 [gpg]
   format = ssh
 [gpg "ssh"]

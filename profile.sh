@@ -1,11 +1,12 @@
-export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:$JAVA_HOME/bin:$GOPATH/bin:$DOT_FILES_HOME/bin:$PATH"
-export DOT_FILES_HOME="$HOME/dot_files_macos"
+export HOME_DEV="$HOME/dev"
+export DOT_FILES_HOME="$HOME/dev/git/dot_files_macos"
 export GOPATH="$HOME/dev/go"
 # export JAVA_HOME=$(/usr/libexec/java_home)
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 export GPG_TTY=$(tty)
 export NVM_DIR="$HOME/.nvm"
+export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:$JAVA_HOME/bin:$GOPATH/bin:$HOME_DEV/bin:$PATH"
 # [ -f $HOME/.ad_profile ] && source $HOME/.ad_profile
 # [ -f $HOME/.dw_profile ] && source $HOME/.dw_profile
 # [ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
@@ -19,6 +20,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -L $HOME/.it_profile ] && source $HOME/.it_profile
 [ -d $HOME/dev/bin ] && export PATH="${HOME}/dev/bin:${PATH}"
 [ -d $GOPATH/bin ] && export PATH="${GOPATH}/bin:${PATH}"
+[ -d /usr/local/go ] && export GOROOT="/usr/local/go" && export PATH="${GOROOT}/bin:${PATH}"
+[ -d /opt/homebrew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 type nvim >/dev/null 2>&1 && export EDITOR="nvim"
 
 ZSH_CUSTOM="$HOME/dot_files_macos/zsh-custom"
