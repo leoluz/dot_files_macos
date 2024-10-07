@@ -26,3 +26,4 @@ brew install --cask \
   font-fira-code-nerd-font \
   font-hack-nerd-font
 brew install fastfetch
+brew install --cask rectangle # window manager for mac
