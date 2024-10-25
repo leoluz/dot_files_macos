@@ -55,6 +55,7 @@ function gr() {
 
 unalias gm
 unalias gr
+alias branches="git branch --sort='-creatordate'"
 # alias swagger="docker run --rm -it -e GOPATH=$GOPATH:/go -v $HOME:$HOME -w $(pwd) quay.io/goswagger/swagger"
 #
 capture_osx() {
