@@ -1,7 +1,18 @@
 #!/bin/bash
 
+abort() {
+  printf "%s\n" "$@"
+  exit 1
+}
+
+if ! command -v gh >/dev/null; then
+    abort "Command 'gh' not found. Please install github CLI and authenticate."
+fi
+
 export KUBE_EDITOR="nvim"
 export REVIEWERS=""
+export GOPRIVATE=github.intuit.com
+export GITHUB_INTUIT_TOKEN=$(gh auth token)
 
 # add argocd dist in path
 [ -d $HOME/dev/go/src/github.com/argoproj/argo-cd/dist ] && export PATH="${HOME}/dev/go/src/github.com/argoproj/argo-cd/dist:${PATH}"

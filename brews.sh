@@ -1,4 +1,4 @@
-#brew install --HEAD neovim
+#brew install neovim
 #brew cask install google-cloud-sdk
 #brew cask install kitty
 #brew tap johanhaleby/kubetail && brew install kubetail
@@ -12,7 +12,6 @@ brew install node
 brew install kubectl
 brew install coreutils
 brew install fzf
-$(brew --prefix)/opt/fzf/install
 brew install ripgrep
 brew install fd
 brew install svn #required for installing fira fonts :(
@@ -27,3 +26,16 @@ brew install --cask \
   font-hack-nerd-font
 brew install fastfetch
 brew install --cask rectangle # window manager for mac
+
+# docker
+# docker-completion
+# eiamcli
+# gh
+# iksm@3.10.1
+# jq
+# kind
+# kustomize
+# mockery
+# tree-sitter
+# yarn
+# yq
