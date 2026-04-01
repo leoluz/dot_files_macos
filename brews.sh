@@ -26,6 +26,7 @@ brew install --cask \
   font-hack-nerd-font
 brew install fastfetch
 brew install --cask rectangle # window manager for mac
+brew install starship # terminal prompt
 
 # docker
 # docker-completion

@@ -17,16 +17,17 @@ export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:$J
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # [ -d $HOME/bin/codeql ] && export PATH="$HOME/bin/codeql:${PATH}"
-[ -L $HOME/.it_profile ] && source $HOME/.it_profile
 [ -d $HOME/dev/bin ] && export PATH="${HOME}/dev/bin:${PATH}"
 [ -d $GOPATH/bin ] && export PATH="${GOPATH}/bin:${PATH}"
+[ -d $HOME/.local/bin ] && export PATH="${HOME}/.local/bin:${PATH}"
 [ -d /usr/local/go ] && export GOROOT="/usr/local/go" && export PATH="${GOROOT}/bin:${PATH}"
 [ -d /opt/homebrew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+[ -L $HOME/.it_profile ] && source $HOME/.it_profile
 type nvim >/dev/null 2>&1 && export EDITOR="nvim"
 
 ZSH_CUSTOM="$HOME/dot_files_macos/zsh-custom"
 # PROMPT='$(kube_ps1)'$PROMPT
-RPROMPT='$(kube_ps1)'
+# RPROMPT='$(kube_ps1)'
 
 # gm will checkout the upstream ('origin' if 'upstream' is not available) HEAD branch, fetch remote and rebase
 function gm() {

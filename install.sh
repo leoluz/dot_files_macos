@@ -17,7 +17,8 @@ current_script_dir() {
 script_dir=$(current_script_dir)
 
 # Kitty setup
-kitty_cfgdir="$HOME/.config/kitty"
+cfgdir="$HOME/.config"
+kitty_cfgdir="$cfgdir/kitty"
 [ ! -d $kitty_cfgdir ] && mkdir -p $kitty_cfgdir
 [ -f $kitty_cfgdir/kitty.conf ] && rm $kitty_cfgdir/kitty.conf
 [ ! -L $kitty_cfgdir/kitty.conf ] && ln -s $script_dir/kitty.conf $kitty_cfgdir/kitty.conf
@@ -28,6 +29,7 @@ kitty_cfgdir="$HOME/.config/kitty"
 [ -L $kitty_cfgdir/theme.conf ] && rm $kitty_cfgdir/theme.conf
 ln -s $kitty_cfgdir/tokyonight-theme/extras/kitty/tokyonight_night.conf $kitty_cfgdir/theme.conf
 [ ! -L $kitty_cfgdir/session.conf ] && ln -s $script_dir/kitty/session.conf $kitty_cfgdir/session.conf
+[ ! -L $cfgdir/startship.toml ] && ln -s $script_dir/starship.toml $cfgdir/startship.toml
 
 # Oh-my-zsh setup
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
