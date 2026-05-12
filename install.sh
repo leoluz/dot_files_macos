@@ -29,7 +29,13 @@ kitty_cfgdir="$cfgdir/kitty"
 [ -L $kitty_cfgdir/theme.conf ] && rm $kitty_cfgdir/theme.conf
 ln -s $kitty_cfgdir/tokyonight-theme/extras/kitty/tokyonight_night.conf $kitty_cfgdir/theme.conf
 [ ! -L $kitty_cfgdir/session.conf ] && ln -s $script_dir/kitty/session.conf $kitty_cfgdir/session.conf
-[ ! -L $cfgdir/startship.toml ] && ln -s $script_dir/starship.toml $cfgdir/startship.toml
+
+
+# Ghostty setup
+ghostty_cfgdir="$cfgdir/ghostty"
+[ ! -d $ghostty_cfgdir ] && mkdir -p $ghostty_cfgdir
+[ -f $ghostty_cfgdir/config ] && rm $ghostty_cfgdir/config
+[ ! -L $ghostty_cfgdir/config ] && ln -s $script_dir/ghostty $ghostty_cfgdir/config
 
 # Oh-my-zsh setup
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -42,3 +48,4 @@ fi
 ln -s $script_dir/zshrc $HOME/.zshrc
 [[ -f $HOME/.gitconfig || -L $HOME/.gitconfig ]] && rm $HOME/.gitconfig 
 ln -s $script_dir/gitconfig $HOME/.gitconfig
+[ ! -L $cfgdir/startship.toml ] && ln -s $script_dir/starship.toml $cfgdir/startship.toml
