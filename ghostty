@@ -1,4 +1,8 @@
-font-family = Hack Nerd Font Mono
+font-family = Hack Nerd Font Mono Regular
+font-family-bold = Hack Nerd Font Mono Bold
+font-family-italic = Hack Nerd Font Mono Italic
+font-family-bold-italic = Hack Nerd Font Mono Bold Italic
+
 font-size = 19
 font-feature = +liga
 font-thicken = true
@@ -10,5 +14,6 @@ theme = TokyoNight Night
 split-divider-color = #585b70
 
 cursor-style = block
-cursor-style-blink = false
+#cursor-style = block_hollow
+cursor-style-blink = true
 shell-integration-features = no-cursor

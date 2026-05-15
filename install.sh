@@ -37,6 +37,12 @@ ghostty_cfgdir="$cfgdir/ghostty"
 [ -f $ghostty_cfgdir/config ] && rm $ghostty_cfgdir/config
 [ ! -L $ghostty_cfgdir/config ] && ln -s $script_dir/ghostty $ghostty_cfgdir/config
 
+# WezTerm setup
+wezterm_cfgdir="$cfgdir/wezterm"
+[ ! -d $wezterm_cfgdir ] && mkdir -p $wezterm_cfgdir
+[ -f $wezterm_cfgdir/wezterm.lua ] && rm $wezterm_cfgdir/wezterm.lua
+[ ! -L $wezterm_cfgdir/wezterm.lua ] && ln -s $script_dir/wezterm.lua $wezterm_cfgdir/wezterm.lua
+
 # Oh-my-zsh setup
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
