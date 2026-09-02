@@ -30,7 +30,6 @@
     fastfetch
     rectangle # MacOS window manager
     raycast # App launcher that works with Nix symlinks
-
   ];
 
   programs.wezterm = {
