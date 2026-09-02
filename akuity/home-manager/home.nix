@@ -72,8 +72,16 @@
     enable = true;
     settings.user = {
       name = "leoluz";
-      email = "leonardo.almeida@akuity.io";
+      email = "leoluz@users.noreply.github.com";
     };
+
+    includes = [
+      {
+        condition = "gitdir:~/git/akuity/";
+        contents.user.name = "Leonardo Luz Almeida";
+        contents.user.email = "leonardo.almeida@akuity.io";
+      }
+    ];
 
     signing = {
       key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICEceksjHRzE8SOBtXWuUdB6XSsyDgjZ4EZO7qLG8su4";
@@ -117,18 +125,18 @@
 
   programs.claude-code = {
     enable = true;
-  
+
     settings = {
       theme = "dark";
       permissions = { };
     };
-  
+
     # Written to ~/.claude/CLAUDE.md — global context/instructions
     context = ''
       Prefer concise commit messages.
       Always run tests before considering a task done.
     '';
-  
+
     # MCP servers, declaratively — merged into ~/.claude/settings.json / mcp config
     mcpServers = {
       github = {
@@ -138,7 +146,7 @@
         env = { GITHUB_TOKEN = "$GITHUB_TOKEN"; };
       };
     };
-  
+
     # Custom slash commands: ~/.claude/commands/<name>.md
     commands = {
       deploy = ''
