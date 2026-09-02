@@ -7,8 +7,7 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    ripgrep
-    fd
+    # fonts
     nerd-fonts.fira-code
     nerd-fonts.droid-sans-mono
     nerd-fonts.dejavu-sans-mono
@@ -30,6 +29,8 @@
     fastfetch
     rectangle # MacOS window manager
     raycast # App launcher that works with Nix symlinks
+    fd
+    gnupg #gpg
   ];
 
   programs.wezterm = {
