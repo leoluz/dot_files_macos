@@ -27,6 +27,7 @@
     eza # A modern replacement for ‘ls’
     fastfetch
     rectangle # MacOS window manager
+    raycast # App launcher that works with Nix symlinks
 
   ];
 
@@ -35,15 +36,23 @@
     extraConfig = builtins.readFile ./wezterm.lua;
   };
 
-  # Register wezterm as a macos app so spotlight can find it
-  home.activation.aliasApplications = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    app_folder="$HOME/Applications/Home Manager Apps"
-    mkdir -p "$app_folder"
-    for src in ${pkgs.wezterm}/Applications/*.app ${pkgs.rectangle}/Applications/*.app; do
-      target="$app_folder/$(basename "$src")"
-      [ -e "$target" ] || ln -sf "$src" "$target"
-    done
-  '';
+  # Register apps directly in ~/Applications so spotlight can find them
+  home.activation.aliasApplications =
+    let
+      appsToLink = with pkgs; [
+        wezterm
+        rectangle
+        raycast
+      ];
+      appPaths = lib.concatMapStringsSep " " (pkg: "${pkg}/Applications/*.app") appsToLink;
+    in
+    lib.hm.dag.entryAfter ["writeBoundary"] ''
+      for src in ${appPaths}; do
+        target="$HOME/Applications/$(basename "$src")"
+        rm -f "$target"
+        ln -sf "$src" "$target"
+      done
+    '';
 
   programs.fzf = {
     enable = true;
