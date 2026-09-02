@@ -137,10 +137,10 @@ config.keys = {
   -- Quick selection (kitty_mod+f hints word) → wezterm's quick-select
   { key = "f",          mods = "CMD",       action = act.QuickSelect },
 
-  -- Rename current tab (kitty's shift+cmd+i / kitty_mod+alt+t)
+  -- Rename current tab
   {
     key = "i",
-    mods = "CMD|SHIFT",
+    mods = "CMD",
     action = act.PromptInputLine({
       description = "Enter new tab title",
       action = wezterm.action_callback(function(window, _, line)
@@ -155,8 +155,8 @@ config.keys = {
   { key = "t", mods = "CMD", action = act.SpawnTab("CurrentPaneDomain") },
   { key = "w", mods = "CMD", action = act.CloseCurrentTab({ confirm = true }) },
   { key = "n", mods = "CMD", action = act.SpawnWindow },
-  { key = "c", mods = "CTRL|SHIFT", action = act.CopyTo("Clipboard") },
-  { key = "v", mods = "CTRL|SHIFT", action = act.PasteFrom("Clipboard") },
+  { key = "c", mods = "CMD", action = act.CopyTo("Clipboard") },
+  { key = "v", mods = "CMD", action = act.PasteFrom("Clipboard") },
 }
 
 return config
