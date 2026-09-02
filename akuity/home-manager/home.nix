@@ -61,6 +61,12 @@
     enableZshIntegration = true;
   };
 
+  programs.git = {
+    enable = true;
+    userName = "leoluz";
+    userEmail = "leonardo.almeida@akuity.io";
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -79,7 +85,7 @@
       theme = "refined";
       # theme = "kolo";
     };
-  
+
     shellAliases = {
       ll = "eza -l --icons=auto";
       l = "eza -la --icons=auto";
@@ -98,7 +104,6 @@
   
     settings = {
       theme = "dark";
-      model = "claude-sonnet-4-5";
       permissions = { };
     };
   
