@@ -60,10 +60,26 @@
     enableZshIntegration = true;
   };
 
+  programs.ssh = {
+    enable = true;
+    settings."*" = {
+      identityAgent = "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock";
+    };
+  };
+
   programs.git = {
     enable = true;
-    userName = "leoluz";
-    userEmail = "leonardo.almeida@akuity.io";
+    settings.user = {
+      name = "leoluz";
+      email = "leonardo.almeida@akuity.io";
+    };
+
+    signing = {
+      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICEceksjHRzE8SOBtXWuUdB6XSsyDgjZ4EZO7qLG8su4";
+      format = "ssh";
+      signByDefault = true;
+      signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+    };
   };
 
   programs.zsh = {
