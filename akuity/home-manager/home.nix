@@ -15,6 +15,8 @@
     nerd-fonts.symbols-only
 
     # development
+    go
+    nodejs
     gh
     nixd # Nix Language Server for LSP support
     tree-sitter
