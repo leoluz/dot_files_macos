@@ -1,6 +1,15 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [
+    ./modules/wezterm.nix
+    ./modules/fzf.nix
+    ./modules/ssh.nix
+    ./modules/git.nix
+    ./modules/zsh.nix
+    ./modules/claude-code.nix
+  ];
+
   home.username = "leoluz";
   home.homeDirectory = "/Users/leoluz";
   home.stateVersion = "24.05";
@@ -33,11 +42,6 @@
     gnupg #gpg
   ];
 
-  programs.wezterm = {
-    enable = true;
-    extraConfig = builtins.readFile ./wezterm.lua;
-  };
-
   # Register apps directly in ~/Applications so spotlight can find them
   home.activation.aliasApplications =
     let
@@ -55,132 +59,4 @@
         ln -sf "$src" "$target"
       done
     '';
-
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-  programs.ssh = {
-    enable = true;
-    enableDefaultConfig = false;
-    settings."*" = {
-      identityAgent = "\"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
-    };
-  };
-
-  programs.git = {
-    enable = true;
-    settings.user = {
-      name = "leoluz";
-      email = "leoluz@users.noreply.github.com";
-    };
-
-    settings.alias = {
-      lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --";
-      branches = "for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'";
-    };
-
-    settings.rerere.enable = true;
-    settings.difftool.prompt = false;
-
-    settings.merge = {
-      keepBackup = false;
-      tool = "nvim";
-    };
-
-    settings.mergetool = {
-      prompt = false;
-      keepBackup = false;
-      nvim.cmd = ''nvim -f -c "DiffviewOpen"'';
-    };
-
-    settings.core.editor = "nvim";
-    settings.rebase.autosquash = true;
-    settings.url."git@github.com:".insteadOf = "https://github.com/";
-    settings.pull.ff = "only";
-    settings.push.default = "current";
-
-    includes = [
-      {
-        condition = "gitdir:~/git/akuity/";
-        contents.user.name = "Leonardo Luz Almeida";
-        contents.user.email = "leonardo.almeida@akuity.io";
-      }
-    ];
-
-    signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICEceksjHRzE8SOBtXWuUdB6XSsyDgjZ4EZO7qLG8su4";
-      format = "ssh";
-      signByDefault = true;
-      signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
-    };
-  };
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion = {
-      enable = true;
-    };
-    syntaxHighlighting.enable = true;
-    localVariables = {
-      GOBIN = "$HOME/go/bin";
-      PATH = "$GOBIN:$PATH";
-    };
-
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" "fzf" ];
-      theme = "refined";
-      # theme = "kolo";
-    };
-
-    shellAliases = {
-      ll = "eza -l --icons=auto";
-      l = "eza -la --icons=auto";
-      update = "sudo nixos-rebuild switch --flake .";
-    };
-    history.size = 10000;
-    history.path = "${config.xdg.dataHome}/zsh/history";
-  };
-
-  programs.zsh.shellAliases = {
-    hms = "home-manager switch -b backup --flake ${config.home.homeDirectory}/git/dot_files_macos/akuity/home-manager#leoluz";
-  };
-
-  programs.claude-code = {
-    enable = true;
-
-    settings = {
-      theme = "dark";
-      permissions = { };
-    };
-
-    # Written to ~/.claude/CLAUDE.md — global context/instructions
-    context = ''
-      Prefer concise commit messages.
-      Always run tests before considering a task done.
-    '';
-
-    # MCP servers, declaratively — merged into ~/.claude/settings.json / mcp config
-    mcpServers = {
-      github = {
-        type = "stdio";
-        command = "npx";
-        args = [ "-y" "@modelcontextprotocol/server-github" ];
-        env = { GITHUB_TOKEN = "$GITHUB_TOKEN"; };
-      };
-    };
-
-    # Custom slash commands: ~/.claude/commands/<name>.md
-    commands = {
-      deploy = ''
-        Run the deploy script and report the result.
-      '';
-    };
-  
-    # Custom subagents: ~/.claude/agents/<name>.md
-    agents = { };
-  };
 }
