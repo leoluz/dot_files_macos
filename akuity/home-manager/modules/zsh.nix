@@ -21,6 +21,9 @@
     };
 
     shellAliases = {
+      # oh-my-zsh's git plugin binds gm to "git merge"; override it so it
+      # reaches our own `gm` git alias (see modules/git.nix) instead.
+      gm = "git gm";
       ll = "eza -l --icons=auto";
       l = "eza -la --icons=auto";
       update = "sudo nixos-rebuild switch --flake .";
