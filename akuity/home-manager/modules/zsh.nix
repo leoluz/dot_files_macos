@@ -31,6 +31,11 @@
       # Same as hms, but builds nvim from the local go2one checkout instead of
       # the pinned flake.lock commit, so local edits apply without commit/push.
       hms-dev = "home-manager switch -b backup --flake ${config.home.homeDirectory}/git/dot_files_macos/akuity/home-manager#leoluz --override-input go2one path:${config.home.homeDirectory}/git/go2one";
+      # gh's macOS keyring access fails when invoked from Neovim's non-interactive
+      # job/exec context (:!  or plugin jobstart), even though it works fine from
+      # an interactive shell. Pull the token from Keychain here instead, where it's
+      # known to work, and hand it only to this one nvim process's environment.
+      nvim = "GH_TOKEN=$(gh auth token) nvim";
     };
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
