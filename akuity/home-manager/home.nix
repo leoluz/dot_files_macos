@@ -37,6 +37,7 @@
     kubectl
     fzf
     goreman
+    kustomize
 
     # utils
     ripgrep # Recursively searches directories for a regex pattern
