@@ -36,6 +36,7 @@
     go2one.packages.${system}.default # neovim, preconfigured via github:leoluz/go2one
     kubectl
     fzf
+    goreman
 
     # utils
     ripgrep # Recursively searches directories for a regex pattern
