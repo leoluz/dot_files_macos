@@ -22,7 +22,7 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "fzf" ];
+      plugins = [ "git" "fzf" "kubectl" "argocd"];
       # theme = "refined";
       # theme = "kolo";
     };
