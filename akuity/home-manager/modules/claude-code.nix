@@ -6,6 +6,7 @@
 
     settings = {
       theme = "dark";
+      tui = "default";
       permissions = { };
     };
 
