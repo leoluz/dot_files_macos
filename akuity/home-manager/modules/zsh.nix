@@ -13,6 +13,13 @@
       PATH = "$GOBIN:$PATH";
     };
 
+    # ~/.rd/bin holds Rancher Desktop's docker/helm/nerdctl/kubectl shims;
+    # it isn't added to PATH by the app itself on macOS, and only exists
+    # when Rancher Desktop is installed.
+    initContent = ''
+      [[ -d "$HOME/.rd/bin" ]] && PATH="$HOME/.rd/bin:$PATH"
+    '';
+
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "fzf" ];
