@@ -1,6 +1,15 @@
 { config, ... }:
 
 {
+  # ~/.rd/bin holds Rancher Desktop's docker/helm/nerdctl/kubectl shims.
+  # Rancher Desktop only adds it to PATH for interactive shells (it patches
+  # ~/.zshrc/~/.bashrc directly), so any non-interactive process spawned
+  # without sourcing those rc files - `make`/goreman child processes, IDE run
+  # tasks, cron - can't find `docker` at all. home.sessionPath instead lands
+  # in hm-session-vars.sh, which ~/.zshenv and ~/.zprofile source
+  # unconditionally, so it covers every shell, not just interactive ones.
+  home.sessionPath = [ "$HOME/.rd/bin" ];
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -12,13 +21,6 @@
       GOBIN = "$HOME/go/bin";
       PATH = "$GOBIN:$PATH";
     };
-
-    # ~/.rd/bin holds Rancher Desktop's docker/helm/nerdctl/kubectl shims;
-    # it isn't added to PATH by the app itself on macOS, and only exists
-    # when Rancher Desktop is installed.
-    initContent = ''
-      [[ -d "$HOME/.rd/bin" ]] && PATH="$HOME/.rd/bin:$PATH"
-    '';
 
     oh-my-zsh = {
       enable = true;

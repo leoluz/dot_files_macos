@@ -30,6 +30,7 @@
     # development
     go
     nodejs
+    pnpm
     gh
     nixd # Nix Language Server for LSP support
     tree-sitter
