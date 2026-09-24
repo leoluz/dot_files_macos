@@ -57,16 +57,35 @@
       # Same as hms, but builds nvim from the local go2one checkout instead of
       # the pinned flake.lock commit, so local edits apply without commit/push.
       hms-dev = "home-manager switch -b backup --flake ${config.home.homeDirectory}/git/dot_files_macos/akuity/home-manager#leoluz --override-input go2one path:${config.home.homeDirectory}/git/go2one";
-      # Bumps flake.lock to the latest commit of every input (nixpkgs,
-      # home-manager, go2one, ...), then switches. Kept separate from hms so
-      # a plain switch always rebuilds the exact pinned versions.
-      hms-update = "nix flake update --flake ${config.home.homeDirectory}/git/dot_files_macos/akuity/home-manager && home-manager switch -b backup --flake ${config.home.homeDirectory}/git/dot_files_macos/akuity/home-manager#leoluz";
       # gh's macOS keyring access fails when invoked from Neovim's non-interactive
       # job/exec context (:!  or plugin jobstart), even though it works fine from
       # an interactive shell. Pull the token from Keychain here instead, where it's
       # known to work, and hand it only to this one nvim process's environment.
       nvim = "GH_TOKEN=$(gh auth token) nvim";
     };
+    # Bumps flake.lock to the latest commit of every input (nixpkgs,
+    # home-manager, go2one, ...), then switches and prints every package
+    # version change between the previous and new generation (or says so
+    # when the update produced an identical generation). Kept separate
+    # from hms so a plain switch always rebuilds the exact pinned versions.
+    # A function rather than an alias since it has to capture the old
+    # generation before switching.
+    initContent = ''
+      hms-update() {
+        local flake=${config.home.homeDirectory}/git/dot_files_macos/akuity/home-manager
+        local profile=${config.xdg.stateHome}/nix/profiles/home-manager
+        local old
+        old=$(readlink -f "$profile") || return
+        nix flake update --flake "$flake" \
+          && home-manager switch -b backup --flake "$flake#leoluz" \
+          || return
+        if [[ "$(readlink -f "$profile")" == "$old" ]]; then
+          echo "hms-update: no new versions found."
+        else
+          nvd diff "$old" "$profile"
+        fi
+      }
+    '';
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
   };

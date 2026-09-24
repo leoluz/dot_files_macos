@@ -50,6 +50,7 @@
     raycast # App launcher that works with Nix symlinks
     fd # A simple, fast and user-friendly alternative to 'find'
     gnupg # gpg
+    nvd # Nix version diff, used by hms-update
   ];
 
   # Register apps directly in ~/Applications so spotlight can find them
