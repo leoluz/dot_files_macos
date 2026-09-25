@@ -5,7 +5,7 @@
     enable = true;
 
     settings = {
-      model = "fable";
+      model = "claude-opus-5-5";
       theme = "dark";
       tui = "default";
       permissions = { };
