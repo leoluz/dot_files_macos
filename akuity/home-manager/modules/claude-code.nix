@@ -9,11 +9,13 @@
       theme = "dark";
       tui = "default";
       permissions = { };
+      attribution.commit = "";
     };
 
     # Written to ~/.claude/CLAUDE.md — global context/instructions
     context = ''
       Prefer concise commit messages.
+      Never add a `Co-Authored-By: Claude ...` trailer (or any other Claude attribution line) to commit messages.
       Always run tests before considering a task done.
     '';
 
