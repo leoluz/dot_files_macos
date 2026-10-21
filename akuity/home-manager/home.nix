@@ -51,6 +51,7 @@
     raycast # App launcher that works with Nix symlinks
     fd # A simple, fast and user-friendly alternative to 'find'
     gnupg # gpg
+    _1password-cli # op, reads secrets from 1Password (e.g. in .envrc files)
     nvd # Nix version diff, used by hms-update
   ];
 
