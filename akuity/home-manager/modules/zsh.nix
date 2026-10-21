@@ -11,7 +11,7 @@
   #
   # ~/.local/bin is listed first so it's prepended ahead of ~/.rd/bin (see
   # home.file below for why).
-  home.sessionPath = [ "$HOME/.local/bin" "$HOME/.rd/bin" ];
+  #home.sessionPath = [ "$HOME/.local/bin" "$HOME/.rd/bin" ];
 
   # Rancher Desktop's containerd engine mode doesn't run a Docker-API-compatible
   # daemon, so the real `docker` CLI in ~/.rd/bin can't connect to anything.
@@ -19,13 +19,13 @@
   # mode and is close to drop-in compatible. This has to live ahead of
   # ~/.rd/bin in PATH (not just be a shell alias) so it's picked up by
   # subprocesses that exec "docker" directly, e.g. the argocd e2e suite.
-  home.file.".local/bin/docker" = {
-    text = ''
-      #!/usr/bin/env bash
-      exec nerdctl "$@"
-    '';
-    executable = true;
-  };
+  #home.file.".local/bin/docker" = {
+  #  text = ''
+  #    #!/usr/bin/env bash
+  #    exec nerdctl "$@"
+  #  '';
+  #  executable = true;
+  #};
 
   programs.zsh = {
     enable = true;

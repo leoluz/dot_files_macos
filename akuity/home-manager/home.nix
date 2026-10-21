@@ -9,6 +9,7 @@
     ./modules/zsh.nix
     ./modules/starship.nix
     ./modules/claude-code.nix
+    ./modules/direnv.nix
   ];
 
   home.username = "leoluz";
