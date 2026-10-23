@@ -1,4 +1,4 @@
-{ ... }:
+{ superpowers, ... }:
 
 {
   programs.claude-code = {
@@ -44,5 +44,11 @@
 
     # Custom subagents: ~/.claude/agents/<name>.md
     agents = { };
+
+    # Skills: ~/.claude/skills/<name>/, linked from the pinned superpowers input
+    skills = {
+      requesting-code-review = "${superpowers}/skills/requesting-code-review";
+      receiving-code-review = "${superpowers}/skills/receiving-code-review";
+    };
   };
 }
