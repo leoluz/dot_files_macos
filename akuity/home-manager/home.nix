@@ -54,6 +54,11 @@
     gnupg # gpg
     _1password-cli # op, reads secrets from 1Password (e.g. in .envrc files)
     nvd # Nix version diff, used by hms-update
+    # tac (reverse cat) from GNU coreutils, without shadowing the BSD tools
+    (runCommand "tac" { } ''
+      mkdir -p $out/bin
+      ln -s ${coreutils}/bin/tac $out/bin/tac
+    '')
   ];
 
   # Register apps directly in ~/Applications so spotlight can find them
