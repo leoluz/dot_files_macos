@@ -40,6 +40,7 @@
     fzf
     goreman
     kustomize
+    bats # Bash Automated Testing System
 
     # utils
     ripgrep # Recursively searches directories for a regex pattern
