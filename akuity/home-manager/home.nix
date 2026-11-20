@@ -54,7 +54,7 @@
     gnupg # gpg
     _1password-cli # op, reads secrets from 1Password (e.g. in .envrc files)
     nvd # Nix version diff, used by hms-update
-    # tac (reverse cat) from GNU coreutils, without shadowing the BSD tools
+    # tac (reverse cat) from GNU coreutils, without shadowing the macos BSD tools
     (runCommand "tac" { } ''
       mkdir -p $out/bin
       ln -s ${coreutils}/bin/tac $out/bin/tac
