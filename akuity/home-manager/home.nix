@@ -9,6 +9,7 @@
     ./modules/zsh.nix
     ./modules/starship.nix
     ./modules/claude-code.nix
+    ./modules/claude-oncall.nix
     ./modules/direnv.nix
   ];
 
