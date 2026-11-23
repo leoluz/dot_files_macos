@@ -40,6 +40,8 @@
     fzf
     goreman
     kustomize
+    awscli2
+    kubelogin-oidc #kubectl plugin
     bats # Bash Automated Testing System
 
     # utils

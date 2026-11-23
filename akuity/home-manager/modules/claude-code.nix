@@ -41,6 +41,20 @@
         args = [ "-y" "@modelcontextprotocol/server-github" ];
         env = { GITHUB_TOKEN = "$GITHUB_TOKEN"; };
       };
+
+      # Support week servers (in-cluster .svc hosts require Twingate)
+      aims = {
+        type = "http";
+        url = "http://aims-prod.akuity-platform.svc/mcp";
+        oauth = {
+          clientId = "HOlosX06oRUMTsh89XQej1UyuocVuopW";
+          callbackPort = 8996;
+        };
+      };
+      grafana-prod = { type = "http"; url = "http://mcp-grafana-prod.monitoring.svc/mcp"; };
+      grafana-stage = { type = "http"; url = "http://mcp-grafana-stage.monitoring.svc/mcp"; };
+      grafana-test = { type = "http"; url = "http://mcp-grafana-test.monitoring.svc/mcp"; };
+      akuity-stage-mcp = { type = "http"; url = "https://stage.akuity.io/mcp"; };
     };
 
     # Custom slash commands: ~/.claude/commands/<name>.md
