@@ -26,11 +26,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795468948,
-        "narHash": "sha256-aBXhZQE25JgxRJWsmIQjiUCMw/JI7tKUaZ1FkNh8umQ=",
+        "lastModified": 1795469719,
+        "narHash": "sha256-DXkIWS4gHwq+v947S6M6+T18MhnF1P6DRBLrcwiGBk4=",
         "owner": "leoluz",
         "repo": "go2one",
-        "rev": "559f75b919d05178ba062f3c356cc207e8368c39",
+        "rev": "6c6416e6c30f9c6b4eb39e18fe3302fdc4bbd690",
         "type": "github"
       },
       "original": {
